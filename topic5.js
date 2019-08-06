@@ -195,5 +195,5 @@ for (var key in salaries){
 
 }
 result=result/size;
-
 console.log(result);
+
