@@ -30,6 +30,9 @@ function tv() {
 			}
 			this._brightness -= 25;
 		}
+		tv.prototype.getBrightness = function(){
+			return this._brightness;
+		}
 		
 		tv.prototype.nextChannel = function(){
 			if (this._channelNumber > 2){
@@ -77,7 +80,10 @@ myTv.turnOff();
 console.log("My current status " + myTv.getStatus());
 
 myTv.increaseBrightness();
+console.log("Current brightness " + myTv.getBrightness());
 myTv.decreaseBrightness();
+
+console.log("Current brightness " + myTv.getBrightness());
 
 
 console.log(myTv.getChannel());
