@@ -1,77 +1,77 @@
 "use strict"
 
-function tv() {
-	
+function Tv() {	
 		this._status = 0;
 		this._channels = ["1+1","СТБ","Интер","M1"];
 		this._channelNumber = 0;
 		this._brightness = 50;
-		this._volume = 50;
+		this._volume = 50;	
+	}
 		
-		tv.prototype.turnOn=function(){
+		Tv.prototype.turnOn = function(){
 			this._status = 1;
 		}
-		tv.prototype.turnOff=function(){
+		
+		Tv.prototype.turnOff = function(){
 			this._status = 0;
 		}
-		tv.prototype.getStatus=function(){
+		Tv.prototype.getStatus = function(){
 			return this._status;
-		}
-		
-		tv.prototype.increaseBrightness= function(){
+		}		
+		Tv.prototype.increaseBrightness = function(){
 			if (this._brightness >= 75){
 				this._brightness = 75;
 			}
 			this._brightness += 25;
 		}
-		tv.prototype.decreaseBrightness = function(){
+		Tv.prototype.decreaseBrightness = function(){
 			if(this._brightness <= 25){
 				this._brightness = 25;
 			}
 			this._brightness -= 25;
 		}
-		tv.prototype.getBrightness = function(){
+		Tv.prototype.getBrightness = function(){
 			return this._brightness;
 		}
 		
-		tv.prototype.nextChannel = function(){
+		Tv.prototype.nextChannel = function(){
 			if (this._channelNumber > 2){
 				this._channelNumber = -1;
 			}
 			this._channelNumber++;
 		}
 		
-		tv.prototype.previousChannel = function() {
+		Tv.prototype.previousChannel = function() {
 			if (this._channelNumber < 1){
 				this._channelNumber = 4;
 			}
 			this._channelNumber--;
 		}
-		tv.prototype.getChannel = function(){
+		Tv.prototype.getChannel = function(){
 			return this._channels[this._channelNumber];
 		}
 		
-		tv.prototype.volumeUp = function(){
+		Tv.prototype.volumeUp = function(){
 			if(this._volume >= 75){
 				this._volume = 75;
 			}
 			this._volume += 25;
 		}
-		tv.prototype.volumeDown = function(){
+		Tv.prototype.volumeDown = function(){
 			if(this._volume <= 25){
 				this._volume = 25;
 			}
 			this._volume-= 25;
 		}
-		tv.prototype.volumeMute = function(){
+		Tv.prototype.volumeMute = function(){
 			this._volume = 0;
 		}
-		tv.prototype.getVolume = function(){
+		Tv.prototype.getVolume = function(){
 			return this._volume;
 		}
-}
 
-var myTv = new tv();
+
+var myTv = new Tv();
 
 console.log("My current status " + myTv.getStatus());
 myTv.turnOn();
