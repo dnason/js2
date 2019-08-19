@@ -39,15 +39,16 @@ function mul() {
 	
 	var data = Array.prototype.slice.call(arguments);
 	let sum=0;
-	console.log(data)
-	
+		
 	data.forEach(function(value) {
 		if (typeof(value) === "number"){
 			sum+=value;
 			}
 	}
+	
 )
-	console.log(sum);
+return sum;
+	
 }
 console.log(mul(1, "str", 2, 3, true)); // 6
 
