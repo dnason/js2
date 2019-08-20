@@ -44,12 +44,24 @@ function mul() {
 		if (typeof(value) === "number"){
 			sum+=value;
 			}
-	}
-	
+	}	
 )
 return sum;
 	
 }
-console.log(mul(1, "str", 2, 3, true)); // 6
+function mul1(){
+	let data = Array.prototype.slice.call(arguments);
+	let sum=0
+	
 
+	var result=data.filter(function(option){
+                return typeof(option) === "number";
+            }).reduce(function(a,b){
+                return a+b;
+            },0);
+return result	
+}
+
+console.log(mul(1, "str", 2, 3, true)); // 6
+console.log(mul1(1, "str", 2, 3, true)); // 6
 console.log(mul(null, "str", false, true)); //0
