@@ -2,8 +2,6 @@
 
 function mul(data){
 	let sum=0
-	
-
 	var result=data.filter(function(option){
                 return typeof(option) === "number";
             }).reduce(function(a,b){
