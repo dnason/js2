@@ -1,7 +1,6 @@
 "use strict"
 
 function mul(data){
-	let data = Array.prototype.slice.call(arguments);
 	let sum=0
 	
 
