@@ -59,16 +59,17 @@ function Tv() {
 		Tv.prototype.nextChannel = function(){
 			if (this._channelNumber == this._channels.length-1){
 				this._channelNumber = 0;
-			}	
+			}	else {
 				this._channelNumber++;
-				
+			}
 		}
 		
 		Tv.prototype.previousChannel = function() {
 			if (this._channelNumber == 0){
-				this._channelNumber = this._channels.length;
-			}
+				this._channelNumber = this._channels.length-1;
+			} else {
 				this._channelNumber--;
+			}
 		}
 		Tv.prototype.getChannel = function(){
 			return this._channels[this._channelNumber];
@@ -83,15 +84,17 @@ function Radio(){
 	
 		Radio.prototype.nextStation = function(){
 			if (this._stationNumber == this._stationName.length-1){
-				this._stationNumber = -1;
+				this._stationNumber = 0;
+			} else {
+				this._stationNumber++;
 			}
-				this._stationNumber++;			
 		}
 		Radio.prototype.previousStation = function(){
 			if (this._stationNumber == 0){
-				this._stationNumber=this._stationName.length;
+				this._stationNumber=this._stationName.length-1;
+			}else{
+				this._stationNumber--;
 			}
-				this._stationNumber--;		
 		}
 		Radio.prototype.getStation = function(){
 			return this._stationName[this._stationNumber]
