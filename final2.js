@@ -14,18 +14,14 @@ function Device(){
 	Device.prototype.getStatus = function(){
 			return this._status;
 		}
-	Device.prototype.volumeUp = function(){
-			this._volume +=25;
-			
-			if (this._volume > 100){
-				this._volume = 100;
+	Device.prototype.volumeUp = function(){			
+			if (this._volume != 100){
+				this._volume +=25;
 			}
 		}
-	Device.prototype.volumeDown = function(){
-			this._volume -=25;	
-			
-			if (this._volume <= 0){
-			this._volume = 0;
+	Device.prototype.volumeDown = function(){			
+			if (this._volume != 0){
+				this._volume -=25;
 			}
 		}
 	Device.prototype.volumeMute = function(){
@@ -45,16 +41,15 @@ function Tv() {
 		Tv.prototype = Object.create(Device.prototype);
 		Tv.prototype.constructor = Tv;
 				
-		Tv.prototype.increaseBrightness = function(){
-				this._brightness += 25;
-				if (this._brightness >100){
-					this._brightness = 100;
+		Tv.prototype.increaseBrightness = function(){				
+				if (this._brightness !=100){
+					this._brightness += 25;
 			}
 		}
 		Tv.prototype.decreaseBrightness = function(){
-				this._brightness -= 25;
-				if (this._brightness < 0){
-					this._brightness = 0;
+				
+				if (this._brightness != 0){
+					this._brightness -= 25;;
 			}
 		}
 		Tv.prototype.getBrightness = function(){
@@ -62,18 +57,18 @@ function Tv() {
 		}
 		
 		Tv.prototype.nextChannel = function(){
+			if (this._channelNumber == this._channels.length-1){
+				this._channelNumber = 0;
+			}	
 				this._channelNumber++;
-				if (this._channelNumber > this._channels.length-1){
-					this._channelNumber = 0;
-			}
+				
 		}
 		
 		Tv.prototype.previousChannel = function() {
-				this._channelNumber--;
-				
-					if (this._channels < 0){
-						this._channelNumber = this._channels.length-1;
+			if (this._channelNumber == 0){
+				this._channelNumber = this._channels.length;
 			}
+				this._channelNumber--;
 		}
 		Tv.prototype.getChannel = function(){
 			return this._channels[this._channelNumber];
@@ -87,23 +82,20 @@ function Radio(){
 		Radio.prototype.constructor = Radio;
 	
 		Radio.prototype.nextStation = function(){
-				this._stationNumber++;
-				
-			if (this._stationNumber > this._stationName.length-1){
-				this._stationNumber = 0;
+			if (this._stationNumber == this._stationName.length-1){
+				this._stationNumber = -1;
 			}
+				this._stationNumber++;			
 		}
 		Radio.prototype.previousStation = function(){
-				this._stationNumber--;
-				
-			if (this._stationNumber < 0){
-				this._stationNumber=this._stationName.length-1;
+			if (this._stationNumber == 0){
+				this._stationNumber=this._stationName.length;
 			}
+				this._stationNumber--;		
 		}
 		Radio.prototype.getStation = function(){
 			return this._stationName[this._stationNumber]
 		}
-
-
+		
 var myTv = new Tv();
 var myRadio = new Radio();
