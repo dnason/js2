@@ -1,5 +1,28 @@
 "use strict"
 
+class Home{
+		constructor(){
+			this._address = address;
+			this._devices = [];
+		}
+		getAddress(){
+			return this._address;
+		}
+		setAddress(value){
+			this._address = value;
+		} 
+			
+		addDevice(name){
+			this._devices.push(name);
+		}
+		getAllDevice(){
+			console.log(this._devices);
+		}
+		deleteDeviceByName(name){
+			this._devices.delete(name);
+		}
+}
+
 function Device(){
 	this._name = name;
 	this._status = 0;
