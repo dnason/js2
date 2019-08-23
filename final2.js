@@ -1,13 +1,54 @@
 "use strict"
 
-function Device(){
-	this._status = 0;
-	this._volume = 50;
+class Home{
+		constructor(){
+			this._address = "myAddress";
+			this._devices = [];
+		}
+		get address(){
+			return this._address;
+		}
+		set address(value){
+			this._address = value;
+		} 
+			
+		addDevice(name){
+			let nameElement;
+			this._devices.push(name);
+			
+		}
+		getDeviceByName(name){
+			this._devices.forEach(function(name){
+				if (this._devices[i] == name) {
+					return this._devices[i]
+				}
+			})
+			
+		}
+		getAllDevices(){
+			return this._devices;
+		}
+		deleteDeviceByName(name){
+			this._devices. array.filter(name);
+		}
 }
+const myHome = new Home();
+
+
+function Device(name){
+	this._name = name;
+	this._status = 0;
+	this._volume = 50;	
+}
+	Device.prototype.setName = function(name){
+		this._name=name;
+	}
+	Device.prototype.getName = function(){
+		return this._name;
+	}
 	Device.prototype.turnOn = function(){
 			this._status = 1;
-		}
-		
+		}		
 	Device.prototype.turnOff = function(){
 			this._status = 0;
 		}
@@ -31,7 +72,7 @@ function Device(){
 			return this._volume;
 		}
 
-function Tv() {	
+function Tv(name) {	
 		Device.call(this);
 		
 		this._channels = ["1+1","СТБ","Интер","M1"];
@@ -55,7 +96,6 @@ function Tv() {
 		Tv.prototype.getBrightness = function(){
 			return this._brightness;
 		}
-		
 		Tv.prototype.nextChannel = function(){
 			if (this._channelNumber == this._channels.length-1){
 				this._channelNumber = 0;
@@ -63,7 +103,6 @@ function Tv() {
 				this._channelNumber++;
 			}
 		}
-		
 		Tv.prototype.previousChannel = function() {
 			if (this._channelNumber == 0){
 				this._channelNumber = this._channels.length-1;
@@ -74,31 +113,31 @@ function Tv() {
 		Tv.prototype.getChannel = function(){
 			return this._channels[this._channelNumber];
 		}
-function Radio(){
-		Device.call(this);
-		this._stationName = ["Radio Era","BBC","Radio Svoboda"]
-		this._stationNumber = 0;
-	}		
-		Radio.prototype	= Object.create(Device.prototype);
-		Radio.prototype.constructor = Radio;
 	
-		Radio.prototype.nextStation = function(){
-			if (this._stationNumber == this._stationName.length-1){
-				this._stationNumber = 0;
+class Radio extends Device{
+		constructor(name){
+			super();
+			this._stationName = ["Radio Era","BBC","Radio Svoboda"];
+			this._stationNumber = 0;
+		}
+		
+		nextStation(){
+			if(this._stationNumber == this._stationName.length-1){
+				this._stationNumber= 0;
 			} else {
 				this._stationNumber++;
 			}
 		}
-		Radio.prototype.previousStation = function(){
+		previousStation(){
 			if (this._stationNumber == 0){
 				this._stationNumber=this._stationName.length-1;
-			}else{
+			} else{
 				this._stationNumber--;
 			}
 		}
-		Radio.prototype.getStation = function(){
-			return this._stationName[this._stationNumber]
+		getStation(){
+		return this._stationName[this._stationNumber];
 		}
-		
+}
 var myTv = new Tv();
 var myRadio = new Radio();

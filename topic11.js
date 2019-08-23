@@ -65,3 +65,33 @@ return result
 console.log(mul(1, "str", 2, 3, true)); // 6
 console.log(mul1(1, "str", 2, 3, true)); // 6
 console.log(mul(null, "str", false, true)); //0
+
+let obj = {
+	name: "obj",
+	print: function () {
+		return () => console.log(this.name);
+		}
+	};
+function multiCaller(func, count) {
+	for (let i = 0; i < count; i++) {
+		func();
+		}
+	}
+multiCaller(obj.print(), 3);
+
+let names = {
+first: "Tom",
+second: "Sam",
+third: "Ray"
+};
+console.log(`Первый: -${names.first}-, Второй - "${names.second}", Третий => '${names.	third}`);
+
+function format(s, ...v) {
+	res1 
+}
+let res1 = format`${1} + ${2} = ${3}`; // "3 = 2 + 1"
+console.log(res1);
+let res2 = format`Привет ${"Мир "}`; // "Мир Привет"
+console.log(res2);
+let res3 = format`left${"<->"}right`; // "right"<->"left"
+console.log(res3);
