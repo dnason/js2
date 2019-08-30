@@ -2,154 +2,123 @@
 
 class Home{
 		constructor(){
-<<<<<<< HEAD
+
 			this._address = "myAddress";
-			this._devices = [];
-		}
-		get address(){
-			return this._address;
-		}
-		set address(value){
-=======
-			this._address = address;
 			this._devices = [];
 		}
 		getAddress(){
 			return this._address;
 		}
 		setAddress(value){
->>>>>>> 73549becbe00b744913a5f5b8d15df9fb8e0b500
 			this._address = value;
 		} 
 			
 		addDevice(name){
-<<<<<<< HEAD
-			let nameElement;
 			this._devices.push(name);
-			
 		}
-		getDeviceByName(name){
-			this._devices.forEach(function(name){
-				if (this._devices[i] == name) {
-					return this._devices[i]
-				}
-			})
-			
+		
+		getDeviceByName(myName){ this._devices.map((myName)=> {
+			if(myName == this._device._name){
+				return myName;
+			}
+		})
 		}
 		getAllDevices(){
 			return this._devices;
 		}
 		deleteDeviceByName(name){
-			this._devices. array.filter(name);
+			function condition(name){
+				return _name = name;
+			}
+			this._devices.filter(condition);
 		}
 }
 const myHome = new Home();
 
 
-function Device(name){
-=======
-			this._devices.push(name);
-		}
-		getAllDevice(){
-			console.log(this._devices);
-		}
-		deleteDeviceByName(name){
-			this._devices.delete(name);
-		}
-}
-
-function Device(){
->>>>>>> 73549becbe00b744913a5f5b8d15df9fb8e0b500
+class Device{
+	constructor(name){
+	
 	this._name = name;
 	this._status = 0;
 	this._volume = 50;	
 }
-<<<<<<< HEAD
-	Device.prototype.setName = function(name){
-		this._name=name;
-=======
-	Device.prototype.setName = function(value){
-		this._name=value;
->>>>>>> 73549becbe00b744913a5f5b8d15df9fb8e0b500
+
+	setName(name) {
+		this.name=name;
 	}
-	Device.prototype.getName = function(){
+	getName(){
 		return this._name;
 	}
-	Device.prototype.turnOn = function(){
-			this._status = 1;
+	turnOn(){
+		this._status = 1;
 		}		
-	Device.prototype.turnOff = function(){
-			this._status = 0;
+	turnOff(){
+		this._status = 0;
 		}
-	Device.prototype.getStatus = function(){
-			return this._status;
+	getStatus(){
+		return this._status;
 		}
-	Device.prototype.volumeUp = function(){			
-			if (this._volume != 100){
-				this._volume +=25;
+	volumeUp(){			
+		if (this._volume != 100){
+			this._volume +=25;
 			}
 		}
-	Device.prototype.volumeDown = function(){			
-			if (this._volume != 0){
-				this._volume -=25;
+	volumeDown(){			
+		if (this._volume != 0){
+			this._volume -=25;
 			}
 		}
-	Device.prototype.volumeMute = function(){
-			this._volume = 0;
+	volumeMute(){
+		this._volume = 0;
 		}
-	Device.prototype.getVolume = function(){
-			return this._volume;
+	getVolume(){
+		return this._volume;
 		}
-
-function Tv(name) {	
-		Device.call(this);
-		
-		this._channels = ["1+1","СТБ","Интер","M1"];
-		this._channelNumber = 0;
-		this._brightness = 50;		
-	}	
-		Tv.prototype = Object.create(Device.prototype);
-		Tv.prototype.constructor = Tv;
+}
+class Tv extends Device{	
+		constructor(name){
+			super(name);
+			this._channels = ["1+1","СТБ","Интер","M1"];
+			this._channelNumber = 0;
+			this._brightness = 50;		
+		}	
 				
-		Tv.prototype.increaseBrightness = function(){				
+		increaseBrightness(){				
 				if (this._brightness !=100){
 					this._brightness += 25;
 			}
 		}
-		Tv.prototype.decreaseBrightness = function(){
-				
+		decreaseBrightness(){				
 				if (this._brightness != 0){
 					this._brightness -= 25;;
 			}
 		}
-		Tv.prototype.getBrightness = function(){
+		getBrightness(){
 			return this._brightness;
 		}
-		Tv.prototype.nextChannel = function(){
+		nextChannel(){
 			if (this._channelNumber == this._channels.length-1){
 				this._channelNumber = 0;
 			}	else {
 				this._channelNumber++;
 			}
 		}
-		Tv.prototype.previousChannel = function() {
+		previousChannel(){
 			if (this._channelNumber == 0){
 				this._channelNumber = this._channels.length-1;
 			} else {
 				this._channelNumber--;
 			}
 		}
-		Tv.prototype.getChannel = function(){
+		getChannel(){
 			return this._channels[this._channelNumber];
 		}
-	
+}	
 class Radio extends Device{
-<<<<<<< HEAD
 		constructor(name){
-=======
-		constructor(){
->>>>>>> 73549becbe00b744913a5f5b8d15df9fb8e0b500
-			super();
+
+			super(name);
 			this._stationName = ["Radio Era","BBC","Radio Svoboda"];
 			this._stationNumber = 0;
 		}
@@ -172,5 +141,3 @@ class Radio extends Device{
 		return this._stationName[this._stationNumber];
 		}
 }
-var myTv = new Tv();
-var myRadio = new Radio();
