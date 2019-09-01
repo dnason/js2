@@ -17,21 +17,24 @@ class Home{
 			this._devices.push(name);
 		}
 		
-		getDeviceByName(myName){ this._devices.map((myName)=> {
-			if(myName == this._device._name){
-				return myName;
+		getDeviceByName(name){ 
+		for (let i=0; i<this._devices.length;i++){
+			if (name === this._devices[i]._name)
+				return this._devices[i];
 			}
-		})
-		}
+		}	
+		
 		getAllDevices(){
 			return this._devices;
 		}
+		
 		deleteDeviceByName(name){
-			function condition(name){
-				return _name = name;
+			
+			for(let i=0; i< this._devices.length ;i++){
+				if (name === this._devices[i]._name)
+					this._devices.splice(i,1);
 			}
-			this._devices.filter(condition);
-		}
+		}	
 }
 const myHome = new Home();
 
