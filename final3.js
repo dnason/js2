@@ -25,7 +25,7 @@ class Home{
 				console.log(element); 
 				return element;
 				}
-			}) 
+			},this._devices) 
 			}
 
 
@@ -41,13 +41,17 @@ class Home{
 		}
 		
 		
-		
-		deleteDeviceByName(name){			
+		deleteDeviceByName(name){
+			const result = this._devices.filter((elem) => ( elem._name !== name));
+			 this._devices=result;
+		}
+/*		deleteDeviceByName(name){
+			
 			for(let i=0; i< this._devices.length ;i++){
 				if (name === this._devices[i]._name)
 					this._devices.splice(i,1);
 			}
-		}	
+		}	*/
 }
 const myHome = new Home();
 
