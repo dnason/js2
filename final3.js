@@ -6,30 +6,43 @@ class Home{
 			this._address = "myAddress";
 			this._devices = [];
 		}
-		getAddress(){
+		
+		set address(name){
+			this._address = name;
+		}
+		
+		get address(){
 			return this._address;
 		}
-		setAddress(value){
-			this._address = value;
-		} 
-			
+					
 		addDevice(name){
 			this._devices.push(name);
 		}
-		
-		getDeviceByName(name){ 
+	
+		getDeviceByName(name){
+			this._devices.forEach((element) => {
+				if(name === element._name){
+				console.log(element); 
+				return element;
+				}
+			}) 
+			}
+
+
+/*		getDeviceByName(name){ 
 		for (let i=0; i<this._devices.length;i++){
 			if (name === this._devices[i]._name)
 				return this._devices[i];
 			}
-		}	
+		}*/	
 		
 		getAllDevices(){
 			return this._devices;
 		}
 		
-		deleteDeviceByName(name){
-			
+		
+		
+		deleteDeviceByName(name){			
 			for(let i=0; i< this._devices.length ;i++){
 				if (name === this._devices[i]._name)
 					this._devices.splice(i,1);
@@ -47,10 +60,10 @@ class Device{
 	this._volume = 50;	
 }
 
-	setName(name) {
+	set name(name) {
 		this.name=name;
 	}
-	getName(){
+	get name(){
 		return this._name;
 	}
 	turnOn(){
@@ -59,7 +72,7 @@ class Device{
 	turnOff(){
 		this._status = 0;
 		}
-	getStatus(){
+	get status(){
 		return this._status;
 		}
 	volumeUp(){			
@@ -75,7 +88,7 @@ class Device{
 	volumeMute(){
 		this._volume = 0;
 		}
-	getVolume(){
+	get volume(){
 		return this._volume;
 		}
 }
@@ -97,7 +110,7 @@ class Tv extends Device{
 					this._brightness -= 25;;
 			}
 		}
-		getBrightness(){
+		get brightness(){
 			return this._brightness;
 		}
 		nextChannel(){
@@ -114,7 +127,7 @@ class Tv extends Device{
 				this._channelNumber--;
 			}
 		}
-		getChannel(){
+		get channel(){
 			return this._channels[this._channelNumber];
 		}
 }	
@@ -140,7 +153,7 @@ class Radio extends Device{
 				this._stationNumber--;
 			}
 		}
-		getStation(){
+		get station(){
 		return this._stationName[this._stationNumber];
 		}
 }
