@@ -20,14 +20,21 @@ class Home{
 		}
 	
 		getDeviceByName(name){
-			this._devices.forEach((element) => {
-				if(name === element._name){
-				console.log(element); 
-				return element;
-				}
-			},this._devices) 
-			}
-
+				let resultIndex = "init";
+				this._devices.forEach(function(element,index){
+					if ( name === element){
+						resultIndex=index;
+					}
+					else resultIndex =-1;
+					}	)
+					
+					if (resultIndex === -1){
+						return null;
+						}
+					else {
+						return  this._devices[resultIndex];
+					}
+		}
 
 /*		getDeviceByName(name){ 
 		for (let i=0; i<this._devices.length;i++){
@@ -42,9 +49,21 @@ class Home{
 		
 		
 		deleteDeviceByName(name){
+				let resultIndex = "init";
+				this._devices.forEach(function(element,index){
+					if (name === element){
+					resultIndex = index;
+				}
+				})
+				
+				this._devices.splice(resultIndex,1);
+		}
+		
+/*		deleteDeviceByName(name){
 			const result = this._devices.filter((elem) => ( elem._name !== name));
 			 this._devices=result;
-		}
+		}*/
+		
 /*		deleteDeviceByName(name){
 			
 			for(let i=0; i< this._devices.length ;i++){
