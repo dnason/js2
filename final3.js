@@ -51,12 +51,16 @@ class Home{
 		deleteDeviceByName(name){
 				let resultIndex = "init";
 				this._devices.forEach(function(element,index){
-					if (name === element){
+					if (name = element){
 					resultIndex = index;
-				}
+				} else resultIndex = -1;
 				})
-				
-				this._devices.splice(resultIndex,1);
+					
+				if (resultIndex === -1){
+					return null;
+				} else {
+					this._devices.splice(resultIndex,1);
+				}
 		}
 		
 /*		deleteDeviceByName(name){
