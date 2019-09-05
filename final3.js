@@ -20,20 +20,12 @@ class Home{
 		}
 	
 		getDeviceByName(name){
-				let resultIndex = "init";
+				let resultIndex = null;
 				this._devices.forEach(function(element,index){
-					if ( name === element){
-						resultIndex=index;
-					}
-					else resultIndex =-1;
-					}	)
-					
-					if (resultIndex === -1){
-						return null;
-						}
-					else {
+					if ( name === element._name){
+						resultIndex = index;
+					}})
 						return  this._devices[resultIndex];
-					}
 		}
 
 /*		getDeviceByName(name){ 
@@ -49,18 +41,15 @@ class Home{
 		
 		
 		deleteDeviceByName(name){
-				let resultIndex = "init";
+				let resultIndex = null;
 				this._devices.forEach(function(element,index){
-					if (name = element){
+					if (name === element._name){
 					resultIndex = index;
-				} else resultIndex = -1;
-				})
-					
-				if (resultIndex === -1){
-					return null;
-				} else {
-					this._devices.splice(resultIndex,1);
 				}
+			})
+					
+				this._devices.splice(resultIndex,1);
+				
 		}
 		
 /*		deleteDeviceByName(name){
