@@ -22,7 +22,7 @@ class Home{
 		getDeviceByName(name){
 				let resultIndex = null;
 				this._devices.forEach(function(element,index){
-					if ( name === element._name){
+					if ( name === element.name){
 						resultIndex = index;
 					}})
 						return  this._devices[resultIndex];
@@ -43,24 +43,21 @@ class Home{
 		deleteDeviceByName(name){
 				let resultIndex = null;
 				this._devices.forEach(function(element,index){
-					if (name === element._name){
+					if (name === element.name){
 					resultIndex = index;
-				}
-			})
-					
-				this._devices.splice(resultIndex,1);
-				
+				}})			
+				this._devices.splice(resultIndex,1);			
 		}
 		
 /*		deleteDeviceByName(name){
-			const result = this._devices.filter((elem) => ( elem._name !== name));
+			const result = this._devices.filter((elem) => ( elem.name !== name));
 			 this._devices=result;
 		}*/
 		
 /*		deleteDeviceByName(name){
 			
 			for(let i=0; i< this._devices.length ;i++){
-				if (name === this._devices[i]._name)
+				if (name === this._devices[i].name)
 					this._devices.splice(i,1);
 			}
 		}	*/
