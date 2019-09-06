@@ -1,14 +1,14 @@
 "use strict"
 
 class Home{
-		constructor(){
+		constructor(address){
 
-			this._address = "myAddress";
+			this._address = address;
 			this._devices = [];
 		}
 		
-		set address(name){
-			this._address = name;
+		set address(address){
+			this._address = address;
 		}
 		
 		get address(){
@@ -65,7 +65,7 @@ class Home{
 			}
 		}	*/
 }
-const myHome = new Home();
+const myHome = new Home("typicalAddress");
 
 
 class Device{
